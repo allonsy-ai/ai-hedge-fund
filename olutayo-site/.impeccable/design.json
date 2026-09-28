@@ -5,8 +5,8 @@
   "extensions": {
     "colorMeta": {
       "line-payments": { "role": "primary", "displayName": "Payments Line Green" },
-      "line-data": { "role": "secondary", "displayName": "Data Line Blue" },
-      "line-build": { "role": "tertiary", "displayName": "Build Line Orange" },
+      "line-data": { "role": "secondary", "displayName": "Data Line Ink" },
+      "line-build": { "role": "tertiary", "displayName": "Build Line Graphite (dashed)" },
       "enamel": { "role": "neutral", "displayName": "Enamel" },
       "signage-panel": { "role": "neutral", "displayName": "Signage Panel" }
     },
@@ -27,10 +27,10 @@
   "components": [
     { "name": "Primary Button", "kind": "button", "refersTo": "button-primary", "description": "Main action, Get in touch.",
       "html": "<a class=\"ds-btn\" href=\"#\">Get in touch</a>",
-      "css": ".ds-btn{display:inline-flex;gap:10px;font:700 16px/1 Overpass,system-ui,sans-serif;padding:14px 20px 12px;border-radius:4px;background:#121518;color:#f3f4f1;text-decoration:none;transition:background-color .2s,transform .15s}.ds-btn:hover{background:#00875a;color:#fff}.ds-btn:active{transform:translateY(1px) scale(.98)}.ds-btn:focus-visible{outline:3px solid #1f5fd1;outline-offset:3px}" },
+      "css": ".ds-btn{display:inline-flex;gap:10px;font:700 16px/1 Overpass,system-ui,sans-serif;padding:14px 20px 12px;border-radius:4px;background:#121518;color:#f3f4f1;text-decoration:none;transition:background-color .2s,transform .15s}.ds-btn:hover{background:#00875a;color:#fff}.ds-btn:active{transform:translateY(1px) scale(.98)}.ds-btn:focus-visible{outline:3px solid #00875a;outline-offset:3px}" },
     { "name": "Ghost Button", "kind": "button", "refersTo": "button-ghost", "description": "Secondary action, Download CV.",
       "html": "<a class=\"ds-ghost\" href=\"#\">Download CV</a>",
-      "css": ".ds-ghost{display:inline-flex;font:700 16px/1 Overpass,system-ui,sans-serif;padding:14px 20px 12px;border-radius:4px;border:2px solid #121518;color:#121518;text-decoration:none}.ds-ghost:hover{background:#121518;color:#f3f4f1}.ds-ghost:focus-visible{outline:3px solid #1f5fd1;outline-offset:3px}" },
+      "css": ".ds-ghost{display:inline-flex;font:700 16px/1 Overpass,system-ui,sans-serif;padding:14px 20px 12px;border-radius:4px;border:2px solid #121518;color:#121518;text-decoration:none}.ds-ghost:hover{background:#121518;color:#f3f4f1}.ds-ghost:focus-visible{outline:3px solid #00875a;outline-offset:3px}" },
     { "name": "Route Badge", "kind": "chip", "refersTo": "route-badge", "description": "Names the line an item belongs to.",
       "html": "<span class=\"ds-badge\">Payments</span>",
       "css": ".ds-badge{display:inline-flex;align-items:center;height:28px;padding:3px 12px 0;border-radius:999px;background:#00875a;color:#fff;font:700 14px Overpass,system-ui,sans-serif}" },
@@ -44,13 +44,13 @@
   "narrative": {
     "northStar": "The Route Map",
     "overview": "A career read as a transit network: enamel ground, near-black signage panels, and three coloured lines with fixed meanings. Experience is a route, projects are branch lines, and the hero pairs the map with a 3D fare card.",
-    "keyCharacteristics": ["Three semantic line colours", "Near-black signage panels", "6px round-capped lines with station dots", "Tabular numerals"],
+    "keyCharacteristics": ["One accent colour", "Near-black signage panels", "6px round-capped lines with station dots", "Tabular numerals"],
     "rules": [
-      { "name": "The Line Meaning Rule", "body": "Green is Payments, blue is Data & AI, orange is Build, everywhere.", "section": "colors" },
+      { "name": "The One Accent Rule", "body": "Green is the only hue; other lines are ink, solid or dashed.", "section": "colors" },
       { "name": "The Neutral Ground Rule", "body": "Colour arrives as lines, dots, badges and figures, never as tinted section fills.", "section": "colors" },
       { "name": "The No Kicker Rule", "body": "No small label sits above a heading.", "section": "typography" }
     ],
     "dos": ["Tie every figure to the CV", "End lines at a station"],
-    "donts": ["Add a fourth accent or second typeface", "Use em dashes in copy"]
+    "donts": ["Add a second accent or second typeface", "Use em dashes in copy"]
   }
 }

@@ -70,10 +70,12 @@ function cardFront(photo, colors) {
     [colors.build, [[1180, -40], [1180, 180], [1460, 460], [1460, 1120]]],
   ];
   for (const [col, pts] of routes) {
+    x.setLineDash(col === colors.build ? [60, 40] : []);
     x.strokeStyle = col; x.beginPath();
     pts.forEach(([px, py], i) => (i ? x.lineTo(px, py) : x.moveTo(px, py)));
     x.stroke();
   }
+  x.setLineDash([]);
   const stations = [[560, 640], [640, 720], [1180, 340], [1260, 420], [1460, 700]];
   for (const [sx, sy] of stations) {
     x.beginPath(); x.arc(sx, sy, 26, 0, Math.PI * 2);
@@ -131,8 +133,7 @@ function cardBack(colors) {
   const x = c.getContext('2d');
   x.fillStyle = '#15191d'; x.fillRect(0, 0, W, H);
   x.fillStyle = '#050607'; x.fillRect(0, 110, W, 190);
-  const bw = W / 3;
-  [colors.pay, colors.data, colors.build].forEach((col, i) => { x.fillStyle = col; x.fillRect(i * bw, H - 34, bw, 34); });
+  x.fillStyle = colors.pay; x.fillRect(0, H - 34, W, 34);
   x.fillStyle = '#f3f4f1';
   x.font = '800 96px Overpass, sans-serif';
   x.fillText('Next stop: your team.', 110, 500);
@@ -163,7 +164,10 @@ function faceGeometry(shape, w, h) {
 }
 
 async function initScene(canvas) {
-  const colors = { pay: css('--pay') || '#00875a', data: css('--data') || '#1f5fd1', build: css('--build') || '#e0590f' };
+  const dark = matchMedia('(prefers-color-scheme: dark)').matches && document.documentElement.dataset.theme !== 'light' || document.documentElement.dataset.theme === 'dark';
+  // One accent: Payments green. Data & AI and Build are ink tones.
+  const colors = { pay: css('--pay') || '#00875a', data: dark ? '#eef0ec' : '#121518', build: '#8a9097' };
+  const onCard = { pay: colors.pay, data: '#f3f4f1', build: '#8a9097' };
   await Promise.race([document.fonts.load('800 60px Overpass'), new Promise((r) => setTimeout(r, 1200))]);
   const photo = await loadImage('assets/portrait.jpg');
 
@@ -224,9 +228,9 @@ async function initScene(canvas) {
 
   const tex = (cv) => { const t = new THREE.CanvasTexture(cv); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = renderer.capabilities.getMaxAnisotropy(); return t; };
   const faceMat = (cv) => new THREE.MeshPhysicalMaterial({ map: tex(cv), roughness: 0.32, metalness: 0.0, clearcoat: 1, clearcoatRoughness: 0.08 });
-  const front = new THREE.Mesh(faceGeometry(shape, W, H), faceMat(cardFront(photo, colors)));
+  const front = new THREE.Mesh(faceGeometry(shape, W, H), faceMat(cardFront(photo, onCard)));
   front.position.z = D / 2 + 0.014;
-  const back = new THREE.Mesh(faceGeometry(shape, W, H), faceMat(cardBack(colors)));
+  const back = new THREE.Mesh(faceGeometry(shape, W, H), faceMat(cardBack(onCard)));
   back.position.z = -D / 2 - 0.014; back.rotation.y = Math.PI;
   card.add(front, back);
   card.position.set(0, 0.35, 0);

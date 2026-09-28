@@ -13,11 +13,9 @@ colors:
   panel-ink: "#f3f4f1"
   panel-ink-secondary: "#b7bdc3"
   line-payments: "#00875a"
-  line-data: "#1f5fd1"
-  line-build: "#e0590f"
+  line-data: "#121518"
+  line-build: "#454b52"
   line-payments-text: "#007a51"
-  line-data-text: "#1b56bd"
-  line-build-text: "#b4450a"
   go: "#00875a"
 typography:
   display:
@@ -102,23 +100,23 @@ A career read as a transit network. Pages are wayfinding signage: an enamel grou
 The density is recruiter-scannable: large display type, few words per block, real numbers set big in the line colour. Confidence comes from structure and scale, not ornament.
 
 **Key Characteristics:**
-- Three line colours with permanent meanings, never decorative.
+- One accent (Payments green); other lines are ink, solid or dashed.
 - Near-black signage panels for navigation, contact and the lead project.
 - Round-capped 6px lines with white station dots.
 - Tabular numerals everywhere, since figures are the proof.
 
 ## Colors
 
-A cool enamel neutral field with three saturated transit-line colours, each owning one meaning.
+A cool enamel neutral field with a single accent. Payments green is the only colour; Data & AI and Build are ink lines told apart by style.
 
 ### Primary
 - **Payments Line Green** (#00875a): the Payments line, Interswitch stop, hover state of primary actions (`go`), selection colour. Use #007a51 for text-sized figures.
 
 ### Secondary
-- **Data Line Blue** (#1f5fd1): the Data & AI line, the MSc stop, the Satya branch, focus rings. Use #1b56bd for text.
+- **Data Line Ink** (#121518, light #eef0ec in dark mode): the Data & AI line, drawn solid.
 
 ### Tertiary
-- **Build Line Orange** (#e0590f): the Build line, Omnibiz stop, recommendation engine branch. Never used for body text; use #b4450a when a figure must be orange.
+- **Build Line Graphite** (#454b52): the Build line, always drawn dashed (16px dash, 8px gap).
 
 ### Neutral
 - **Enamel** (#f3f4f1): page ground. Cool and slightly green, never cream.
@@ -128,10 +126,10 @@ A cool enamel neutral field with three saturated transit-line colours, each owni
 - **Signage Panel** (#15191d) and **Raised** (#20262c): header bar, terminus panel, contact tiles, lead branch.
 - **Rule** (#d3d7d2): the only hairline, used between sections and in the toolkit.
 
-Dark mode (system preference or `data-theme="dark"`) swaps the ground to #101316 and lifts the three lines to #1fa874, #4b83ea and #f0712b, with hover actions on #0b7a53.
+Dark mode swaps the ground to #101316, lifts green to #1fa874 and flips the ink line to #eef0ec.
 
 ### Named Rules
-**The Line Meaning Rule.** Green is Payments, blue is Data & AI, orange is Build, everywhere. A new element may use a line colour only if it belongs to that line.
+**The One Accent Rule.** Green is the only colour on the page: the Payments line, key figures, hover and focus. Everything else is ink, graphite and enamel. Lines are distinguished by style (solid, dashed), never by a new hue.
 
 **The Neutral Ground Rule.** The ground stays enamel; colour arrives as lines, dots, badges and figures, not as tinted section fills.
 
@@ -169,7 +167,7 @@ Panels, buttons and tiles use a 4px radius. Route badges are full pills. Lines a
 
 - **Signage bar:** 64px sticky near-black bar with the three-bar mark, section links and a light Get in touch button.
 - **Buttons:** primary is ink with enamel text, turning Payments green on hover with an arrow nudge; ghost is a 2px ink outline that fills on hover. All buttons press down 1px on active.
-- **Route badge:** pill in the line colour with white text.
+- **Route badge:** outlined ink pill with a small swatch of its line (solid or dashed).
 - **Line track:** a coloured line with evenly spaced stations; it draws in from the left when it enters the viewport.
 - **Route stop:** date, rail and body. The rail draws downward on entry. Major stops carry figures and short bullet dashes in the line colour.
 - **Branch panel:** a project tile with its line dropping in from the top edge to a station at the corner.
@@ -179,8 +177,8 @@ Panels, buttons and tiles use a 4px radius. Route badges are full pills. Lines a
 ## Do's and Don'ts
 
 - Do tie every figure to the CV; the numbers are the proof.
-- Do keep line colours semantic and the ground neutral.
+- Do keep green as the only hue; add distinction with line style, weight or labels.
 - Do end lines at a station, never at a hard cut edge.
 - Don't add kickers, eyebrows or section numbers above headings.
-- Don't introduce a fourth accent colour or a second typeface.
+- Don't introduce a second accent colour or a second typeface.
 - Don't use em dashes in copy; use hyphens for ranges.
